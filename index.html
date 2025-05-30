@@ -14,7 +14,6 @@
     <!-- 1. Блок детских фото жениха и невесты с описаниями -->
     <section class="childhood-section">
         <div class="child-photo block">
-            <!-- SVG цветочек для декора -->
             <div class="flower flower-bride">
                 <svg viewBox="0 0 38 38">
                     <circle cx="19" cy="19" r="10" fill="#f7bfa3" fill-opacity="0.6"/>
@@ -64,9 +63,9 @@
 
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 3. Заголовок + Календарь -->
-    <section class="date-section">
-        <div class="block">
+    <!-- 3. Календарь -->
+    <section>
+        <div class="calendar-block-block block">
             <div class="flower flower-calendar">
                 <svg viewBox="0 0 38 38">
                     <circle cx="19" cy="19" r="10" fill="#89bcd8" fill-opacity="0.45"/>
@@ -95,9 +94,9 @@
 
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 4. Место проведения + карта -->
-    <section class="place-section">
-        <div class="block">
+    <!-- 4. Местоположение ЗАГС -->
+    <section>
+        <div class="place-block block">
             <div class="flower flower-map">
                 <svg viewBox="0 0 38 38">
                     <circle cx="19" cy="19" r="10" fill="#8bbba1" fill-opacity="0.45"/>
@@ -105,11 +104,32 @@
                     <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.15"/>
                 </svg>
             </div>
-            <h2>Место проведения</h2>
+            <h2>Место проведения регистрации</h2>
+            <h4>ЗАГС</h4>
+            <p>г. Москва, ул. Примерная, д. 10</p>
+            <div class="map-container">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Azags_map_id&source=constructor"
+                    width="100%" height="300" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="heart">❤</span></div>
+    <!-- 5. Местоположение ресторана -->
+    <section>
+        <div class="place-block block">
+            <div class="flower flower-map">
+                <svg viewBox="0 0 38 38">
+                    <circle cx="19" cy="19" r="10" fill="#8bbba1" fill-opacity="0.45"/>
+                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#f7bfa3" fill-opacity="0.25"/>
+                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.15"/>
+                </svg>
+            </div>
+            <h2>Место проведения банкета</h2>
             <h4>Ресторан "Вдохновение"</h4>
             <p>г. Москва, ул. Примерная, д. 1</p>
             <div class="map-container">
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder&source=constructor"
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Arestaurant_map_id&source=constructor"
                     width="100%" height="300" frameborder="0"></iframe>
             </div>
         </div>
@@ -117,9 +137,9 @@
 
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 5. План дня -->
-    <section class="timeline-section">
-        <div class="block">
+    <!-- 6. План дня -->
+    <section>
+        <div class="timeline-section-block block">
             <h2>План дня</h2>
             <ul class="timeline">
                 <li>
@@ -148,17 +168,18 @@
 
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 6. Текстовый блок -->
-    <section class="wishes-section block">
-        <h2>Пожелания гостям</h2>
-        <p>Мы будем рады видеть каждого из вас и разделить этот счастливый день вместе!</p>
+    <!-- 7. Текстовый блок -->
+    <section>
+        <div class="wishes-section block">
+            <h2>Пожелания гостям</h2>
+            <p>Мы будем рады видеть каждого из вас и разделить этот счастливый день вместе!</p>
+        </div>
     </section>
-
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 7. Анкета RSVP -->
-    <section class="rsvp-section">
-        <div class="block">
+    <!-- 8. Анкета RSVP -->
+    <section>
+        <div class="rsvp-section-block block">
             <h2>Анкета гостя</h2>
             <form id="rsvp-form">
                 <div class="form-group">
@@ -203,9 +224,9 @@
 
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 8. Таймер до мероприятия: новая стилизация -->
-    <section class="timer-section">
-        <div class="block">
+    <!-- 9. Таймер до мероприятия: новая стилизация -->
+    <section>
+        <div class="timer-section-block block">
             <div class="timer-title">Мы скажем «ДА», через...</div>
             <div id="timer">
                 <div class="timer-box timer-days">
@@ -227,13 +248,14 @@
             </div>
         </div>
     </section>
-
     <div class="section-divider"><span class="heart">❤</span></div>
 
-    <!-- 9. Финальный текстовый блок -->
-    <section class="final-section block">
-        <h2>До встречи на нашем празднике!</h2>
-        <p>Мы вас очень ждём!</p>
+    <!-- 10. Финальный текстовый блок -->
+    <section>
+        <div class="final-section block">
+            <h2>До встречи на нашем празднике!</h2>
+            <p>Мы вас очень ждём!</p>
+        </div>
     </section>
     <script src="main.js"></script>
 </body>

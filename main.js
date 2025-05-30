@@ -19,6 +19,7 @@ updateTimer();
 
 // Анимация появления блоков при прокрутке (работает и для мобильных)
 function animateBlocksOnScroll() {
+    // Все блоки, имеющие .block (и подклассы типа .timeline-section-block)
     const blocks = document.querySelectorAll('.block');
     const triggerBottom = window.innerHeight * 0.92;
     blocks.forEach(block => {
@@ -26,7 +27,6 @@ function animateBlocksOnScroll() {
         if (blockTop < triggerBottom) {
             block.classList.add('visible');
         } else {
-            // Снова убираем visible при прокрутке вверх/перезагрузке
             block.classList.remove('visible');
         }
     });
