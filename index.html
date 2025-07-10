@@ -1,141 +1,118 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу</title>
-    <!-- Шрифты для праздничного стиля -->
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One:400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашение на свадьбу</title>
+
+  <!-- Правильная загрузка Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?
+      family=Poiret+One&display=swap&
+      family=Dancing+Script:wght@400;700&
+      family=Open+Sans:wght@400;600&
+      display=swap" 
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- ============================= -->
+    <!-- Фоновое изображение задается в CSS: см. body { background: ... } -->
+    <!-- ============================= -->
+
     <!-- 1. Блок детских фото жениха и невесты с описаниями -->
     <section class="childhood-section">
         <div class="child-photo block">
-            <div class="flower flower-bride">
-                <svg viewBox="0 0 38 38">
-                    <circle cx="19" cy="19" r="10" fill="#f7bfa3" fill-opacity="0.6"/>
-                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.45"/>
-                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.45"/>
-                    <ellipse cx="31" cy="19" rx="6" ry="4" fill="#e38b8b" fill-opacity="0.45"/>
-                    <ellipse cx="7" cy="19" rx="6" ry="4" fill="#e38b8b" fill-opacity="0.45"/>
-                </svg>
-            </div>
-            <img src="https://placehold.co/300x400?text=Жених+в+детстве" alt="Жених в детстве">
+            <!-- ЗДЕСЬ ВСТАВЬТЕ ФОТО ЖЕНИХА В ДЕТСТВЕ -->
+            <img src="images/bride_child.jpg" alt="Жених в детстве">
             <div class="child-desc">
                 <h3>Алексей в детстве</h3>
                 <p>Краткое описание, каким был жених в детстве.</p>
             </div>
         </div>
         <div class="child-photo block">
-            <div class="flower flower-groom">
-                <svg viewBox="0 0 38 38">
-                    <circle cx="19" cy="19" r="10" fill="#8bbba1" fill-opacity="0.5"/>
-                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.35"/>
-                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.35"/>
-                    <ellipse cx="31" cy="19" rx="6" ry="4" fill="#e38b8b" fill-opacity="0.35"/>
-                    <ellipse cx="7" cy="19" rx="6" ry="4" fill="#e38b8b" fill-opacity="0.35"/>
-                </svg>
-            </div>
-            <img src="https://placehold.co/300x400?text=Невеста+в+детстве" alt="Невеста в детстве">
+            <!-- ЗДЕСЬ ВСТАВЬТЕ ФОТО НЕВЕСТЫ В ДЕТСТВЕ -->
+            <img src="images/groom_child.jpg" alt="Невеста в детстве">
             <div class="child-desc">
                 <h3>Мария в детстве</h3>
                 <p>Краткое описание, какой была невеста в детстве.</p>
             </div>
         </div>
         <div class="adult-photo block">
-            <img src="https://placehold.co/400x300?text=Совместное+фото" alt="Совместное фото взрослых">
+            <!-- ЗДЕСЬ ВСТАВЬТЕ СОВМЕСТНОЕ ФОТО ВЗРОСЛЫХ -->
+            <img src="images/couple_adult.jpg" alt="Совместное фото взрослых">
             <div class="adult-desc">
                 <p>Наши лучшие моменты вместе!</p>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 2. Заголовок + Описание -->
     <section class="invitation-main block">
         <h2>Дорогие друзья и близкие!</h2>
-        <p>Мы рады пригласить вас на самое важное событие в нашей жизни — нашу свадьбу!</p>
+        <p>Этот важный для нас день - день нашей свадьбы - мы хотим разделить с самыми близкими для нас людьми. Поэтому мы счастливы пригласить вас на наш праздник соединения двух сердец!</p>
     </section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 3. Календарь -->
     <section>
         <div class="calendar-block-block block">
-            <div class="flower flower-calendar">
-                <svg viewBox="0 0 38 38">
-                    <circle cx="19" cy="19" r="10" fill="#89bcd8" fill-opacity="0.45"/>
-                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#f7bfa3" fill-opacity="0.35"/>
-                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#f7bfa3" fill-opacity="0.35"/>
-                </svg>
-            </div>
             <h2>Дата и время</h2>
             <div class="calendar-block">
                 <div class="calendar">
-                    <div class="calendar-header">Июнь 2025</div>
+                    <div class="calendar-header">Октябрь 2025</div>
                     <div class="calendar-body">
                         <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-                        <span class="empty"></span><span class="empty"></span><span class="empty"></span>
-                        <span>1</span><span>2</span><span>3</span><span>4</span>
-                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
-                        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
-                        <span>19</span><span>20</span><span>21</span><span class="event-day">22</span><span>23</span><span>24</span><span>25</span>
-                        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+                        <span class="empty"></span><span class="empty"></span><span>1</span>
+                        <span>2</span><span>3</span><span>4</span><span>5</span>
+                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span class="event-day">25</span><span>26</span>
+                        <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
                     </div>
-                    <div class="calendar-footer">Суббота, 22 июня 2025, 15:00</div>
+                    <div class="calendar-footer">Суббота, 25 октября 2025, 09:00</div>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 4. Местоположение ЗАГС -->
     <section>
         <div class="place-block block">
-            <div class="flower flower-map">
-                <svg viewBox="0 0 38 38">
-                    <circle cx="19" cy="19" r="10" fill="#8bbba1" fill-opacity="0.45"/>
-                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#f7bfa3" fill-opacity="0.25"/>
-                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.15"/>
-                </svg>
-            </div>
             <h2>Место проведения регистрации</h2>
-            <h4>ЗАГС</h4>
-            <p>г. Москва, ул. Примерная, д. 10</p>
+            <h4>Дворец бракосочетания "Екатерининский Зал"</h4>
+            <p>г. Краснодар, Офицерская ул., 47</p>
             <div class="map-container">
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Azags_map_id&source=constructor"
-                    width="100%" height="300" frameborder="0"></iframe>
+                <!-- ЗДЕСЬ ВСТАВЬТЕ СВОЙ src для карты ЗАГСа -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d180369.18813727648!2d38.88816848371441!3d45.06006281796186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f04584c685f35f%3A0x7a4f5f01513d4f9f!2z0JTQstC-0YDQtdGGINCx0YDQsNC60L7RgdC-0YfQtdGC0LDQvdC40Y8gItCV0LrQsNGC0LXRgNC40L3QuNC90YHQutC40Lkg0JfQsNC7Ig!5e0!3m2!1sru!2sru!4v1752009986933!5m2!1sru!2sru" frameborder="0" style="border: 0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
     <!-- 5. Местоположение ресторана -->
     <section>
         <div class="place-block block">
-            <div class="flower flower-map">
-                <svg viewBox="0 0 38 38">
-                    <circle cx="19" cy="19" r="10" fill="#8bbba1" fill-opacity="0.45"/>
-                    <ellipse cx="19" cy="7" rx="4" ry="6" fill="#f7bfa3" fill-opacity="0.25"/>
-                    <ellipse cx="19" cy="31" rx="4" ry="6" fill="#e38b8b" fill-opacity="0.15"/>
-                </svg>
-            </div>
             <h2>Место проведения банкета</h2>
-            <h4>Ресторан "Вдохновение"</h4>
-            <p>г. Москва, ул. Примерная, д. 1</p>
+            <h4>Ресторан "Олимп"</h4>
+            <p>г. Краснодар, ул. Вишняковой, 1 корпус 5</p>
             <div class="map-container">
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Arestaurant_map_id&source=constructor"
-                    width="100%" height="300" frameborder="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2820.6792047432345!2d38.989583076868826!3d45.01113597107021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f04fd13571c921%3A0xc3b112c7932b39c4!2z0YPQuy4g0JLQuNGI0L3Rj9C60L7QstC-0LksIDEg0LrQvtGA0L_Rg9GBIDUsINCa0YDQsNGB0L3QvtC00LDRgCwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MDAwMQ!5e0!3m2!1sru!2sru!4v1752010485288!5m2!1sru!2sru" frameborder="0" style="border: 0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 6. План дня -->
     <section>
@@ -143,30 +120,26 @@
             <h2>План дня</h2>
             <ul class="timeline">
                 <li>
-                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-time">9:00</div>
                     <div class="timeline-event">Сбор гостей</div>
                 </li>
                 <li>
-                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-time">10:30</div>
                     <div class="timeline-event">Церемония регистрации</div>
                 </li>
                 <li>
-                    <div class="timeline-time">17:00</div>
-                    <div class="timeline-event">Фотосессия</div>
-                </li>
-                <li>
                     <div class="timeline-time">18:00</div>
-                    <div class="timeline-event">Праздничный ужин и банкет</div>
+                    <div class="timeline-event">Свадебный ужин</div>
                 </li>
                 <li>
                     <div class="timeline-time">21:00</div>
-                    <div class="timeline-event">Танцы и развлечения</div>
+                    <div class="timeline-event">Свадебный торт </div>
                 </li>
             </ul>
         </div>
     </section>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 7. Текстовый блок -->
     <section>
@@ -175,54 +148,72 @@
             <p>Мы будем рады видеть каждого из вас и разделить этот счастливый день вместе!</p>
         </div>
     </section>
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 8. Анкета RSVP -->
-    <section>
-        <div class="rsvp-section-block block">
-            <h2>Анкета гостя</h2>
-            <form id="rsvp-form">
-                <div class="form-group">
-                    <label for="guest-name">Имя и фамилия</label>
-                    <input type="text" id="guest-name" name="guest-name" required>
-                </div>
-                <div class="form-group">
-                    <label>Вы придёте?</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="is-coming" value="yes" required> Да</label>
-                        <label><input type="radio" name="is-coming" value="no"> Нет</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Ваши любимые напитки</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="alcohol" value="vodka"> Водка</label>
-                        <label><input type="checkbox" name="alcohol" value="white-dry"> Вино белое сухое</label>
-                        <label><input type="checkbox" name="alcohol" value="white-semisweet"> Вино белое п/сл</label>
-                        <label><input type="checkbox" name="alcohol" value="red-dry"> Вино красное сухое</label>
-                        <label><input type="checkbox" name="alcohol" value="red-semisweet"> Вино красное п/сл</label>
-                        <label><input type="checkbox" name="alcohol" value="sparkling-brut"> Игристое брют</label>
-                        <label><input type="checkbox" name="alcohol" value="sparkling-semisweet"> Игристое полусладкое</label>
-                        <label><input type="checkbox" name="alcohol" value="cognac"> Коньяк</label>
-                        <label><input type="checkbox" name="alcohol" value="gin"> Джин</label>
-                        <label><input type="checkbox" name="alcohol" value="whiskey"> Виски</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Ваш выбор блюд</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="food" value="chicken"> Курица</label>
-                        <label><input type="checkbox" name="food" value="fish"> Рыба</label>
-                        <label><input type="checkbox" name="food" value="meat"> Мясо</label>
-                    </div>
-                </div>
-                <button type="submit">Отправить</button>
-            </form>
-            <div id="rsvp-success" class="hidden" style="opacity:0;transition:opacity .7s;">Спасибо! Ваша анкета отправлена.</div>
+  <div class="rsvp-section-block block">
+    <h2>Подтвердите ваше участие</h2>
+    <form id="rsvp-form" autocomplete="off">
+      <div class="form-group">
+        <label for="guest-name">Ваше полное имя</label>
+        <input type="text" id="guest-name" name="guest-name" placeholder="Иван Иванов" required>
+      </div>
+      <div class="form-group">
+        <label>Сможете ли вы прийти?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="is-coming" value="Да" required> Да, с радостью!
+          </label>
+          <label>
+            <input type="radio" name="is-coming" value="Нет"> К сожалению, нет
+          </label>
         </div>
-    </section>
+      </div>
+        <div id="ceremony-container" class="form-group hidden">
+          <label>Будете ли вы на церемонии или только на банкете?</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="ceremony" value="Церемония" required>
+              На церемонии
+            </label>
+            <label>
+              <input type="radio" name="ceremony" value="Только банкет">
+              Только на банкете
+            </label>
+          </div>
+        </div>
+      <fieldset id="additional-fields">
+        <div class="form-group">
+          <label>Ваши любимые напитки</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="alcohol" value="Водка"> Водка</label>
+            <label><input type="checkbox" name="alcohol" value="Вино белое сухое"> Вино белое сухое</label>
+            <label><input type="checkbox" name="alcohol" value="Вино белое п/сл"> Вино белое п/сл</label>
+            <label><input type="checkbox" name="alcohol" value="Вино красное сухое"> Вино красное сухое</label>
+            <label><input type="checkbox" name="alcohol" value="Вино красное п/сл"> Вино красное п/сл</label>
+            <label><input type="checkbox" name="alcohol" value="Игристое брют"> Игристое брют</label>
+            <label><input type="checkbox" name="alcohol" value="Игристое полусладкое"> Игристое полусладкое</label>
+            <label><input type="checkbox" name="alcohol" value="Коньяк"> Коньяк</label>
+            <label><input type="checkbox" name="alcohol" value="Джин"> Джин</label>
+            <label><input type="checkbox" name="alcohol" value="Виски"> Виски</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Ваш выбор блюд</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="food" value="Курица"> Курица</label>
+            <label><input type="checkbox" name="food" value="Рыба"> Рыба</label>
+            <label><input type="checkbox" name="food" value="Свинина"> Свинина</label>
+          </div>
+        </div>
+      </fieldset>
+      <button type="submit">Отправить ответ</button>
+    </form>
+    <div id="rsvp-success" class="hidden" style="opacity:0;transition:opacity .7s;">Спасибо, мы получили ваш ответ!</div>
+    <div id="rsvp-sad" class="hidden" style="opacity:0;transition:opacity .7s;">Жаль, что вы не сможете быть с нами.</div>
+  </div>
 
-    <div class="section-divider"><span class="heart">❤</span></div>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 9. Таймер до мероприятия: новая стилизация -->
     <section>
@@ -247,8 +238,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <div class="section-divider"><span class="heart">❤</span></div>
+</section>
+    <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
     <!-- 10. Финальный текстовый блок -->
     <section>

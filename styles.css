@@ -10,6 +10,11 @@
     --bg-block-final:        255,234,234; /* розовый */
     --bg-block-child:        230,245,236; /* зелёный */
     --block-bg-opacity:      0.87;
+    --fs-base:       clamp(16px, 1.5vw, 20px);
+    --fs-heading:    clamp(28px, 4.5vw, 36px);
+    --fs-subheading: clamp(20px, 3.5vw, 28px);
+    --fs-address:    clamp(16px, 2.8vw, 22px);
+    --gap-blocks: clamp(1em, 2vw, 2em);
 
     --accent-pink: #e38b8b;
     --accent-green: #8bbba1;
@@ -20,30 +25,46 @@
     --timer-blue: #c6d6e3;
     --timer-pink: #f4c3ce;
     --timer-text-dark: #444;
-    --timer-font: 'Poiret One', 'Arial', sans-serif;
+    --timer-font: 'Poiret One','Arial', sans-serif;
     --shadow: 0 4px 24px 0 rgba(227,139,139,0.10);
     --block-radius: 26px;
     --block-width: 600px;
     --block-min-width: 320px;
     --block-padding: 1.2em 2em 1.5em 2em;
     --mobile-padding: 1.1em 0.5em;
+    --text-main: #444;
 }
 
 /* Фоновое изображение для всего сайта (замените на свой путь) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 body {
-    background: url('img/1.jpg') center center / cover no-repeat fixed, #fdf6f8;
+    background: url('images/1.jpg') center center / cover no-repeat fixed, #fdf6f8;
     /* ↑↑↑ Замените 'images/bg.jpg' на свой путь к картинке ↑↑↑ */
     color: var(--text-main);
     font-family: 'Open Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: var(--fs-base);
     line-height: 1.5;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+.block {
+  margin: var(--gap-blocks) auto;
+  padding: clamp(1em, 2vw, 3em);
 }
 
 section, .childhood-section, .section-divider {
@@ -61,9 +82,21 @@ h2, h3, h4 {
     margin-top: 0;
     margin-bottom: 0.6em;
 }
-h2 { font-size: 2rem; }
+h2 { font-size: var(--fs-heading); }
 h3 { font-size: 1.4rem; }
-h4 { font-size: 1.1rem; color: var(--accent-green); }
+h4 { font-size: var(--fs-subheading); color: var(--accent-green); }
+
+p {
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-size: 1.1em;
+
+}
+
+.place-block p {
+  font-size: var(--fs-address);
+  /* чтобы длинные адреса не рвали слова некрасиво */
+  word-break: break-word;
+}
 
 .section-divider {
     width: 100%;
@@ -79,12 +112,15 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
 }
 
 .heart {
-    animation: pulse 2s infinite;
+    animation: pulse 1.5s infinite;
 }
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+body, h2, h3, h4, .place-block p {
+  transition: font-size 0.3s ease, margin 0.3s ease, padding 0.3s ease;
 }
 
 /* === Индивидуальные стили блоков с разным цветом и прозрачностью === */
@@ -177,6 +213,20 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
         transform .7s cubic-bezier(.18,.81,.64,1),
         box-shadow .7s cubic-bezier(.18,.81,.64,1);
 }
+
+#additional-fields {
+    margin: 0.5em 0;
+    padding: 0;
+    border: none;
+}
+fieldset:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#additional-fields .form-group:nth-of-type(2) {
+  margin-top: 1.5em; /* регулируйте значение по своему вкусу */
+}
 .rsvp-section-block.block {
     background: rgba(var(--bg-block-rsvp), var(--block-bg-opacity));
     border-radius: var(--block-radius);
@@ -194,6 +244,20 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
         opacity .7s cubic-bezier(.18,.81,.64,1),
         transform .7s cubic-bezier(.18,.81,.64,1),
         box-shadow .7s cubic-bezier(.18,.81,.64,1);
+
+}
+.rsvp-section-block iframe {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border: none;
+    background: transparent;
+    display: block;
+}
+@media (max-width: 700px) {
+    .rsvp-section-block iframe {
+        height: 1400px; /* увеличьте если на мобильных не вся форма видна */
+    }
 }
 .timer-section-block.block {
     background: rgba(var(--bg-block-timer), var(--block-bg-opacity));
@@ -201,9 +265,9 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
     box-shadow: var(--shadow);
     width: var(--block-width);
     min-width: var(--block-min-width);
-    max-width: var(--block-width);
+    max-width: 480px;
     box-sizing: border-box;
-    margin: 1.2em auto;
+    margin: var(--gap) auto;
     padding: var(--block-padding);
     display: flex; flex-direction: column; align-items: center;
     min-height: 180px;
@@ -212,13 +276,6 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
         opacity .7s cubic-bezier(.18,.81,.64,1),
         transform .7s cubic-bezier(.18,.81,.64,1),
         box-shadow .7s cubic-bezier(.18,.81,.64,1);
-}
-
-.timer-box.timer-seconds .timer-num {
-    animation: blink 1s infinite;
-}
-@keyframes blink {
-    50% { opacity: 0.8; }
 }
 .final-section.block {
     background: rgba(var(--bg-block-final), var(--block-bg-opacity));
@@ -280,52 +337,143 @@ h4 { font-size: 1.1rem; color: var(--accent-green); }
 /* Остальные стили для функционала, форм, таймера и т.п. (без изменений, см. предыдущую версию) */
 .calendar-block { width: 100%; display: flex; justify-content: center;}
 .calendar {
-    background: #fff;
-    border-radius: 1.1rem;
-    box-shadow: 0 2px 12px #89bcd880;
-    width: 340px;
-    max-width: 90vw;
-    margin: 0 auto;
-    padding: 1.1em 0.4em 0.7em 0.4em;
+  background: #fff;
+  border-radius: 0.8em;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  width: 100%;
+  max-width: 600px;
+  margin: var(--gap-blocks) auto 0;
+  padding: 1em;
 }
-.calendar-header { font-family: 'Poiret One', cursive, sans-serif; font-size: 1.15em; margin-bottom: 0.2em; color: var(--accent-blue); font-weight: bold;}
+.calendar-header {
+  text-align: center;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.2em;
+  color: var(--accent-blue);
+  margin-bottom: 0.5em;
+}
 .calendar-body {
-    display: grid; grid-template-columns: repeat(7, 1fr);
-    gap: 0.13em; font-size: 1em; margin-bottom: 0.3em;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top:  1px solid #ddd;
+  border-left: 1px solid #ddd;
+  gap: 0; /* чтобы рамки были сплошными */
 }
-.calendar-body span { text-align: center; padding: 0.08em 0; margin: 0.03em 0; border-radius: 4px;}
+.calendar-body span {
+  padding: 0.5em 0;
+  text-align: center;
+  border-right:  1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.calendar-body span:nth-child(-n+7) {
+  background: #f9f9f9;
+  font-weight: bold;
+}
 .calendar-body .event-day {
-    font-weight: bold; background: var(--accent-pink); color: #fff;
-    border-radius: 50%; font-size: 1.15em; box-shadow: 0 2px 5px #e38b8b30;
+  background: var(--accent-peach);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: none;
+  
 }
+
+
 .calendar-body .empty { background: none !important; }
 .calendar-footer {
-    margin-top: 0.7em; font-size: 1.1em; color: var(--accent-blue); font-family: 'Dancing Script', cursive, sans-serif;
+  margin-top: 0.7em;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1em;
+  color: var(--accent-blue);
+  white-space: nowrap;
+  overflow-x: auto;
 }
 .place-block h4 { margin-bottom: 0.3em; }
 .map-container {
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 1em auto 0 auto;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 2px 8px #8bbba140;
-    border: none;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;      /* 16:9 */
+  overflow: hidden;
+  border-radius: var(--block-radius);
+  box-shadow: var(--shadow);
 }
-.timeline-section-block h2 { color: var(--accent-peach);}
-.timeline { list-style: none; padding: 0; margin: 1.1em auto 0.7em auto; max-width: 340px; width: 100%; position: relative;}
-.timeline li { margin: 1.1em 0 1.1em 0; display: flex; align-items: flex-start; gap: 0.8em; position: relative; animation: fadeInUp 1s;}
-.timeline-time { font-family: 'Poiret One', cursive, sans-serif; background: var(--accent-blue); color: #fff; border-radius: 0.7em; padding: 0.45em 1.1em; box-shadow: 0 2px 8px #89bcd840; font-size: 1.03em; min-width: 70px; text-align: center; margin-top: 0.2em;}
-.timeline-event { background: #fff; border-radius: 0.5em; padding: 0.7em 1em; color: var(--accent-peach); font-size: 1.01em; box-shadow: 0 2px 8px #f7bfa330; border: 1px solid #f7bfa350;}
-.timeline li::before { content: "❤"; color: var(--accent-pink); font-size: 1.15em; position: absolute; left: -1.4em; top: 50%; transform: translateY(-50%); z-index: 1; opacity: 0.7;}
+
+.map-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.timeline-section-block .timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0;
+  width: 100%;
+  max-width: 340px;      /* при желании ограничьте ширину */
+}
+
+.timeline-section-block h2 {
+ color: var(--accent-peach);
+}
+
+.timeline-section-block .timeline li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.2em;
+}
+
+.timeline-section-block .timeline-time {
+  flex: 0 0 auto;
+  background: var(--accent-blue);
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-family: 'Poiret One', cursive;
+  min-width: 3.5em;
+  text-align: center;
+}
+.timeline-section-block .timeline-event {
+  flex: 1;
+  background: #fff;
+  color: #e47b46;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 8px rgba(247,191,163,0.2);
+  border: 1px solid rgba(247,191,163,0.3);
+  font-size: 1em;
+  line-height: 1.3;
+}
+.timeline-section-block .timeline li::before {
+  content: "❤";
+  position: absolute;
+  left: -1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-pink);
+  font-size: 1.2em;
+  opacity: 0.7;
+}
 /* Пожелания и финал */
 .final-section.block { text-align: center; }
 .wishes-section.block { text-align: center; }
 /* Анкета RSVP */
 .rsvp-section-block h2 { color: var(--accent-pink);}
-.rsvp-section-block form { display: flex; flex-direction: column; gap: 1.15em; max-width: 340px; margin: 0 auto; width: 100%;}
+.rsvp-section-block form { display: flex; flex-direction: column; gap: 1.15em; max-width: 420px; margin: 0 auto; width: 100%;}
 .form-group { text-align: left; width: 100%;}
-.form-group label { font-family: 'Poiret One', cursive, sans-serif; color: var(--accent-pink); font-size: 1.1em; margin-bottom: 0.2em; display: block;}
+.form-group label { font-family: 'Poiret One', cursive, sans-serif; color: var(--accent-pink); font-size: 1.1em; margin-bottom: 0.5em; display: block;}
 input[type="text"] { width: 100%; box-sizing: border-box; font-size: 1em; padding: 0.55em 0.7em; border: 1.5px solid var(--accent-pink); border-radius: 0.5em; background: #fdf7f2; color: var(--text-main); margin-top: 0.12em; margin-bottom: 0.2em; transition: border 0.2s; max-width: 100%; display: block;}
 input[type="text"]:focus { outline: none; border: 1.5px solid var(--accent-green);}
 .radio-group, .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.7em 1.1em; margin-top: 0.25em;}
@@ -337,17 +485,81 @@ button[type="submit"]:hover, button[type="submit"]:focus { background: linear-gr
 #rsvp-success { color: var(--accent-green); font-size: 1.11em; margin-top: 1.1em; text-align: center;}
 .hidden { display: none; }
 /* Таймер */
-.timer-title { font-family: var(--timer-font); font-size: 1.3em; color: var(--accent-pink); font-weight: normal; margin-bottom: 0.3em; margin-top: 0.2em; text-align: center; border-bottom: 2px solid #bbb; width: 100%; max-width: 380px; padding-bottom: 0.15em; letter-spacing: 0.02em;}
-#timer { display: flex; gap: 1em; justify-content: center; align-items: flex-end; font-family: var(--timer-font); margin: 1.1em 0 0.4em 0; width: 100%; max-width: 390px; transition: font-size .3s;}
-.timer-box { display: flex; flex-direction: column; align-items: center; min-width: 64px; flex: 1 1 0;}
-.timer-num { display: flex; align-items: center; justify-content: center; font-size: 2.1em; font-weight: bold; width: 62px; height: 56px; margin-bottom: 0.14em; border-radius: 12px; box-shadow: 0 2px 10px #0001; color: var(--timer-text-dark); background: var(--timer-yellow); transition: background 0.3s, color 0.3s; position: relative; z-index: 2; animation: timerAppear .7s cubic-bezier(.18,.81,.64,1);}
+.timer-title {
+ font-family: var(--timer-font);
+  font-size: 1.3em;
+  color: var(--accent-pink);
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  margin-top: 0.2em;
+  text-align: center;
+  border-bottom: 2px solid #bbb;
+  width: 100%;
+  max-width: 380px;
+  padding-bottom: 0.15em;
+  letter-spacing: 0.02em;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;      /* центрируем плитки */
+  align-items: flex-end;
+  gap: clamp(0.75rem, 2vw, 1.5rem); /* чуть более плотный gap */
+  margin: 1em auto 0;
+  width: auto;  
+}
+
+.timer-box {
+  flex: 0 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timer-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--timer-font);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--timer-text-dark);
+  width: 160px;
+  height: 115px;
+  border-radius: 0.75em;
+  margin-bottom: 0.4em;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--timer-yellow);
+  box-shadow: 0 4px 24px 0 rgba(227,139,139,0.10);
+  padding: 0.5em 0.75em;
+  min-width: 3ch
+ }
 .timer-box.timer-days .timer-num { background: var(--timer-yellow);}
 .timer-box.timer-hours .timer-num { background: var(--timer-green);}
 .timer-box.timer-minutes .timer-num { background: var(--timer-blue);}
 .timer-box.timer-seconds .timer-num { background: var(--timer-pink); position: relative;}
 .timer-box.timer-seconds .timer-num::before { content: ""; display: block; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 16px; height: 10px; background: none; z-index: 10;}
 .timer-box.timer-seconds .timer-num::after { content: ''; position: absolute; top: -6px; left: 54%; width: 8px; height: 8px; background: #b5cbb8; border-radius: 50% 50% 0 0; transform: rotate(-20deg);}
-.timer-label { margin-top: 0.2em; font-size: 1em; color: var(--timer-text-dark); font-family: var(--timer-font); letter-spacing: 0.02em;}
+.timer-label {
+  margin-top: 0.2em;
+  font-size: 0.85em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timer-section-block.block {
+  /* чтобы совпадать с остальными блоками */
+  width: var(--block-width);
+  max-width: var(--block-width);
+  min-width: var(--block-min-width);
+  margin: var(--gap-blocks) auto; /* центрируем как все */
+}
+
+
+
+
 /* Анимации */
 @keyframes timerAppear { from { opacity: 0; transform: translateY(40px) scale(0.97);} to { opacity: 1; transform: none;} }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px) scale(0.97);} to { opacity: 1; transform: none;} }
@@ -359,27 +571,83 @@ button[type="submit"]:hover, button[type="submit"]:focus { background: linear-gr
         max-width: 98vw;
         box-sizing: border-box;
     }
-    .calendar { width: 98vw; max-width: 98vw;}
+ @media (max-width: 700px) {
+    #timer { gap: 0.7em; }
+      .timer-num {
+        width: 95px;
+        height: 65px;
+        font-size: 2rem;
+        border-radius: 18px;
+      }
+      .timer-label { font-size: 0.8em;}
+    }
+} 
+@media (max-width: 420px) {
+  ..timer-num {
+    width: 60px;
+    height: 38px;
+    font-size: 1.2rem;
+    border-radius: 11px;
+  }
+}  
+    .calendar { width: 42vw; max-width: 98vw;}
     .timeline { max-width: 98vw;}
     .map-container { max-width: 98vw;}
     section, .childhood-section, .section-divider { align-items: center; justify-content: center;}
     #timer { max-width: 98vw; gap: 0.4em;}
-    .timer-title { max-width: 98vw; font-size: 1em;}
-    .timer-num { font-size: 1.3em; width: 38vw; max-width: 51px; height: 42px; min-width: 36px;}
-    .timer-label { font-size: 0.85em;}
-    .timer-box { min-width: 44px; }
+    .timer-title { max-width: 98vw; font-size: var(--fs-heading); font-weight: bold;}
+    .timer-num { font-size: 1.3em;font-weight: bold; width: 38vw; max-width: 51px; height: 42px; min-width: 36px;}
+    .timer-label {
+     ont-size: 0.9em;
+  font-family: 'Dancing Script', cursive, sans-serif;
+  font-weight: 550;
 }
+    .timer-box { min-width: 44px; }
+
 @media (max-width: 420px) {
-    .timer-title { font-size: 0.9em;}
+    .timer-title { font-size: 1.5em;font-weight: bold;}
     #timer { gap: 0.18em;}
-    .timer-num { font-size: 1.1em; width: 23vw; max-width: 37px; height: 30px; min-width: 22px;}
-    .timer-label { font-size: 0.7em;}
+    .timer-num { font-size: 1.2em; font-weight: bold; width: 23vw; max-width: 37px; height: 30px; min-width: 22px;}
+    .timer-label { font-size: 0.7em;font-weight: bold;}
     .timer-box { min-width: 24px;}
 }
 
-@media (max-width: 600px) {
-    :root {
-        --block-padding: 1em;
-        --block-width: 95vw;
-    }
+@media (max-width: 320px) {
+    .timer-box { min-width: 20px; }
+    .timer-num { font-size: 1em; }
+}
+
+.calendar-body .event-day {
+  position: relative !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 2) Рисуем «кружок» фоном через ::before без утраты бордеров */
+.calendar-body .event-day::before {
+  content: '';
+  position: absolute;
+  /* отступаем на толщину бордера (1px) со всех сторон */
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  background: var(--accent-peach);
+  border-radius: 50%;
+  z-index: -1;
+  display: block !important;
+}
+
+/* 3) Центрируем текст числа поверх кружка */
+.calendar-body .event-day {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold;
+  color: #fff;
 }
