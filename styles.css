@@ -651,3 +651,59 @@ button[type="submit"]:hover, button[type="submit"]:focus { background: linear-gr
   font-weight: bold;
   color: #fff;
 }
+
+@media (max-width: 600px) {
+  .calendar {
+    padding: 0.5em;
+  }
+  .calendar-header {
+    font-size: 1em;
+    margin-bottom: 0.3em;
+  }
+  .calendar-body span {
+    /* Меньше отступов внутри ячейки */
+    padding: 0.3em 0;
+    /* Меньший шрифт, чтобы всё влезало */
+    font-size: 0.75em;
+  }
+  .calendar-body .event-day {
+    /* Подстроить размер «кружка» */
+    width: 1.6em;
+    height: 1.6em;
+  }
+  .calendar-footer {
+    font-size: 0.9em;
+    margin-top: 0.5em;
+  }
+}
+
+/* Дополнительная точка перелома для очень узких экранов */
+@media (max-width: 360px) {
+  .calendar-body span {
+    padding: 0.2em 0;
+    font-size: 0.7em;
+  }
+  .calendar-body .event-day {
+    width: 1.4em;
+    height: 1.4em;
+  }
+  .calendar-header {
+    font-size: 0.9em;
+  }
+  .calendar-footer {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 400px) {
+  .calendar-body span:nth-child(-n+7) {
+    font-size: 0;            /* скрываем текст */
+    line-height: 0;          
+  }
+}
+
+/* 4) Немного уменьшаем шрифт заголовка и подвала */
+@media (max-width: 600px) {
+  .calendar-header { font-size: 1em; }
+  .calendar-footer { font-size: 0.9em; white-space: nowrap; }
+}
