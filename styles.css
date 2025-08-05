@@ -49,7 +49,7 @@
 }
 
 body {
-    background: url('img/1.jpg') center center / cover no-repeat fixed, #fdf6f8;
+    background: url('img/bg.png') center center / cover no-repeat fixed, #fdf6f8;
     /* ↑↑↑ Замените 'images/bg.jpg' на свой путь к картинке ↑↑↑ */
     color: var(--text-main);
     font-family: 'Open Sans', Arial, sans-serif;
@@ -65,6 +65,8 @@ body {
 .block {
   margin: var(--gap-blocks) auto;
   padding: clamp(1em, 2vw, 3em);
+  /* Здесь вместо min/max-width: */
+  width: clamp(280px, 90vw, 600px);
 }
 
 section, .childhood-section, .section-divider {
@@ -324,14 +326,13 @@ fieldset:disabled {
 
 /* --- Фотографии внутри блоков (адаптив и стили) --- */
 .child-photo img, .adult-photo img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px 10px 18px 18px;
-    margin-bottom: 0.6em;
-    margin-top: 0.36em;
-    box-shadow: 0 2px 8px #8bbba140;
-    object-fit: cover;
-    object-position: center center;
+   display: block;
+  width: 100%;
+  height: auto;           /* сохраняет пропорции */
+  object-fit: cover;      /* если у вас задана высота — «заполнит» коробку */
+  margin: 0.6em auto 0.36em;
+  border-radius: 10px 10px 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Остальные стили для функционала, форм, таймера и т.п. (без изменений, см. предыдущую версию) */
@@ -557,6 +558,54 @@ button[type="submit"]:hover, button[type="submit"]:focus { background: linear-gr
   margin: var(--gap-blocks) auto; /* центрируем как все */
 }
 
+.photo-section {
+  margin: var(--gap-blocks) auto;
+  padding: var(--block-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.photo-card {
+  position: relative;
+  max-width: 320px;
+  transform: rotate(-2deg);
+  transition: transform 0.3s;
+}
+.photo-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+  border: 6px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.photo-card h2 {
+  font-family: 'Poiret One', cursive;
+  font-size: var(--fs-subheading);
+  color: var(--accent-pink);
+  text-align: center;
+  margin-top: 0.8em;
+}
+
+.photo-final-text {
+  font-family: 'Poiret One', cursive;
+  font-size: var(--fs-heading);
+  color: var(--accent-pink);
+  text-align: center;
+  margin-top: 1.5em;
+}
 
 
 
