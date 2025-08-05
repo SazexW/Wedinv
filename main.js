@@ -5,11 +5,11 @@ function animateOnView() {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       // при вхождении — добавляем .visible, при выходе — убираем
-      entry.target.classList.toggle('visible', entry.isIntersecting);
+      entry.target.classList.toggle('visible', entry.intersectionRatio > 0.1);
     });
   }, {
-    threshold:   0,
-    rootMargin: '0px 0px -10% 0px'
+    threshold:   0.1,
+    rootMargin: '-5% 0px -5% 0px'
   });
 
   // Навешиваем наблюдатель на все блоки
