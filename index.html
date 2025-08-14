@@ -27,7 +27,7 @@
     <!-- 1. Блок детских фото жениха и невесты с описаниями -->
        <!-- 1. Надпись -->
   <section class="final-section block">
-    <h2>Узнаете этих карапузов?</h2>
+    <h2>Узнаете эту детвору?</h2>
   </section>
 
   <!-- 2. Детская фотография -->
@@ -59,34 +59,58 @@
 
     <!-- 3. Календарь -->
     <section>
-        <div class="calendar-block-block block">
-            <h2>Дата и время</h2>
-            <div class="calendar-block">
-                <div class="calendar">
-                    <div class="calendar-header">Октябрь 2025</div>
-                    <div class="calendar-body">
-                        <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-                        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-                        <span class="empty"></span><span class="empty"></span><span>1</span>
-                        <span>2</span><span>3</span><span>4</span><span>5</span>
-                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
-                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span class="event-day">25</span><span>26</span>
-                        <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
-                    </div>
-                    <div class="calendar-footer">Суббота, 25 октября 2025, 09:00</div>
-                </div>
-            </div>
+  <div class="calendar-block-block block">
+    <h2>Дата и время</h2>
+    <div class="calendar-block">
+      <div class="calendar">
+        <div class="calendar-header">Октябрь 2025</div>
+        <div class="calendar-body">
+          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+          <!-- Первая неделя: 29, 30 сентября (Пн, Вт), далее октябрь -->
+          <span class="other-month">29</span>
+          <span class="other-month">30</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <!-- Вторая неделя -->
+          <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+          <!-- Третья неделя -->
+          <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+          <!-- Четвёртая неделя -->
+          <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span class="event-day">25</span><span>26</span>
+          <!-- Пятая неделя -->
+          <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+          <span class="other-month">1</span>
+          <span class="other-month">2</span>
         </div>
+        <div class="calendar-footer">Суббота, 25 октября 2025, 09:00</div>
+      </div>
+    </div>
+  </div>
 </section>
 
     <div class="section-divider"><span class="heart" aria-hidden="true">❤</span></div>
 
+    <!-- 4. Местоположение Выкупа -->
+    <section>
+        <div class="place-block block">
+            <h2>Выкуп невесты</h2>
+            <h4>Дом невесты</h4>
+            <p>г. Краснодар, Дзержинского ул., 33/1</p>
+            <div class="map-container">
+                <!-- ЗДЕСЬ ВСТАВЬТЕ СВОЙ src для карты ЗАГСа -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1409.1792381821015!2d38.97648183978521!3d45.05823869999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f0458620fce3bd%3A0xdb2d71281e65de97!2z0YPQuy4g0JTQt9C10YDQttC40L3RgdC60L7Qs9C-LCAzNyDQutC-0YDQv9GD0YEgMSwg0JrRgNCw0YHQvdC-0LTQsNGALCDQmtGA0LDRgdC90L7QtNCw0YDRgdC60LjQuSDQutGA0LDQuSwg0KDQvtGB0YHQuNGPLCAzNTAwNTE!5e0!3m2!1sru!2snl!4v1755159937468!5m2!1sru!2snl" frameborder="0" style="border: 0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
     <!-- 4. Местоположение ЗАГС -->
     <section>
         <div class="place-block block">
             <h2>Место проведения регистрации</h2>
             <h4>Дворец бракосочетания "Екатерининский Зал"</h4>
+            <h3>Хрустальный зал</h3>
             <p>г. Краснодар, Офицерская ул., 47</p>
             <div class="map-container">
                 <!-- ЗДЕСЬ ВСТАВЬТЕ СВОЙ src для карты ЗАГСа -->
@@ -117,19 +141,35 @@
             <ul class="timeline">
                 <li>
                     <div class="timeline-time">9:00</div>
-                    <div class="timeline-event">Сбор гостей</div>
+                    <div class="timeline-event">Выкуп невесты</div>
+                </li>
+                <li>
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-event">Сбор гостей у ЗАГСа</div>
                 </li>
                 <li>
                     <div class="timeline-time">10:30</div>
                     <div class="timeline-event">Церемония регистрации</div>
                 </li>
                 <li>
-                    <div class="timeline-time">18:00</div>
-                    <div class="timeline-event">Свадебный ужин</div>
+                    <div class="timeline-time">10:50</div>
+                    <div class="timeline-event">Фотосессия возле ЗАГСа </div>
                 </li>
                 <li>
-                    <div class="timeline-time">21:00</div>
-                    <div class="timeline-event">Свадебный торт </div>
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-event">Фотосессия в городе</div>
+                </li>
+                <li>
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-event">Сбор гостей в ресторане, фуршет</div>
+                </li>
+                <li>
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-event">Приезд молодых, свадебный ужин</div>
+                </li>
+                <li>
+                    <div class="timeline-time">23:30</div>
+                    <div class="timeline-event">Прощальный танец и свадебный салют</div>
                 </li>
             </ul>
         </div>
@@ -180,7 +220,7 @@
         </div>
       <fieldset id="additional-fields">
         <div class="form-group">
-          <label>Ваши любимые напитки</label>
+          <label>Ваше предпочтение к алкогольным напиткам</label>
           <div class="checkbox-group">
             <label><input type="checkbox" name="alcohol" value="Водка"> Водка</label>
             <label><input type="checkbox" name="alcohol" value="Вино белое сухое"> Вино белое сухое</label>
@@ -192,14 +232,6 @@
             <label><input type="checkbox" name="alcohol" value="Коньяк"> Коньяк</label>
             <label><input type="checkbox" name="alcohol" value="Джин"> Джин</label>
             <label><input type="checkbox" name="alcohol" value="Виски"> Виски</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Ваш выбор блюд</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="food" value="Курица"> Курица</label>
-            <label><input type="checkbox" name="food" value="Рыба"> Рыба</label>
-            <label><input type="checkbox" name="food" value="Свинина"> Свинина</label>
           </div>
         </div>
       </fieldset>

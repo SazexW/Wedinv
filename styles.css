@@ -360,6 +360,12 @@ fieldset:disabled {
   border-left: 1px solid #ddd;
   gap: 0; /* чтобы рамки были сплошными */
 }
+.calendar-body .other-month {
+  color: #bbb !important;
+  background: none !important;
+  font-weight: normal !important;
+}
+
 .calendar-body span {
   padding: 0.5em 0;
   text-align: center;
