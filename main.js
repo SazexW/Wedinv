@@ -1,20 +1,16 @@
-// --- Анимация появления блоков при прокрутке (IntersectionObserver) ---
 function animateOnView() {
   const blocks = document.querySelectorAll('.block');
-
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       entry.target.classList.toggle('visible', entry.intersectionRatio > 0.1);
     });
   }, {
-    threshold:   0.1,
+    threshold: 0.1,
     rootMargin: '-5% 0px -5% 0px'
   });
-
   blocks.forEach(block => io.observe(block));
 }
 
-// --- Таймер до 25 октября 2025, 09:00 MSK ---
 function startTimer() {
   const target = new Date('2025-10-25T09:00:00+03:00').getTime();
   const els = {
@@ -23,7 +19,6 @@ function startTimer() {
     minutes: document.getElementById('minutes'),
     seconds: document.getElementById('seconds')
   };
-
   function update() {
     let diff = Math.max(0, target - Date.now());
     const d = Math.floor(diff / 86400000);
@@ -32,20 +27,17 @@ function startTimer() {
     diff %= 3600000;
     const m = Math.floor(diff / 60000);
     const s = Math.floor((diff % 60000) / 1000);
-
     els.days.textContent    = d;
     els.hours.textContent   = h;
     els.minutes.textContent = m;
     els.seconds.textContent = s;
   }
-
   update();
   setInterval(update, 1000);
 }
 
-// --- Основной обработчик загрузки страницы ---
 function setupForm() {
-  const form = document.querySelector('form');
+  const form = document.getElementById('rsvp-form');
   const ceremonyContainer = document.getElementById('ceremony-container');
   const additionalFields = document.getElementById('additional-fields');
   const sadDiv = document.getElementById('rsvp-sad');
@@ -57,7 +49,6 @@ function setupForm() {
     'is-coming' : 'entry.724427502',
     'ceremony'  : 'entry.270890438',
     'alcohol'   : 'entry.1323163526'
-    // 'food' больше нет!
   };
 
   additionalFields.disabled = true;
@@ -65,15 +56,18 @@ function setupForm() {
 
   form.addEventListener('change', () => {
     const isComing = form.querySelector('input[name="is-coming"]:checked')?.value;
-
     if (isComing === 'Да') {
       additionalFields.disabled = false;
       ceremonyContainer.classList.remove('hidden');
+      ceremonyContainer.querySelectorAll('input').forEach(i => i.required = true);
     } else {
       additionalFields.disabled = true;
       additionalFields.querySelectorAll('input').forEach(i => i.checked = false);
       ceremonyContainer.classList.add('hidden');
-      ceremonyContainer.querySelectorAll('input').forEach(i => i.checked = false);
+      ceremonyContainer.querySelectorAll('input').forEach(i => {
+        i.checked = false;
+        i.required = false; // ВАЖНО! Убираем required
+      });
     }
   });
 
@@ -86,7 +80,6 @@ function setupForm() {
     const coming = fd.get('is-coming') || '';
     params.append(fieldMap['is-coming'], coming);
 
-    // Если "Да" — собираем напитки и церемонию
     if (coming === 'Да') {
       const al = fd.getAll('alcohol');
       al.length ? al.forEach(v => params.append(fieldMap['alcohol'], v)) : params.append(fieldMap['alcohol'], '');
@@ -95,7 +88,6 @@ function setupForm() {
       successDiv.classList.remove('hidden');
       setTimeout(() => successDiv.style.opacity = '1', 50);
     } else {
-      // Если "Нет" — остальные поля не важны
       form.classList.add('hidden');
       sadDiv.classList.remove('hidden');
       setTimeout(() => sadDiv.style.opacity = '1', 50);

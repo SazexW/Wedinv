@@ -489,7 +489,27 @@ input[type="radio"]:focus + label, input[type="checkbox"]:focus + label { backgr
 input[type="radio"], input[type="checkbox"] { accent-color: var(--accent-pink); margin-right: 0.3em;}
 button[type="submit"] { background: linear-gradient(90deg, var(--accent-pink) 70%, var(--accent-peach)); color: #fff; font-family: 'Poiret One', cursive, sans-serif; font-size: 1.2em; padding: 0.6em 2.1em; border: none; border-radius: 0.7em; box-shadow: 0 2px 14px 0 #e38b8b40; cursor: pointer; margin-top: 0.6em; transition: background 0.2s;}
 button[type="submit"]:hover, button[type="submit"]:focus { background: linear-gradient(90deg, var(--accent-peach), var(--accent-pink) 90%);}
-#rsvp-success { color: var(--accent-green); font-size: 1.11em; margin-top: 1.1em; text-align: center;}
+#rsvp-success {
+  color: var(--accent-green);
+  font-size: 1.11em;
+  margin-top: 1.1em;
+  text-align: center;
+  background: rgba(var(--bg-block-rsvp), var(--block-bg-opacity));
+  padding: 1em 0.5em;
+  border-radius: var(--block-radius);
+  transition: opacity .7s;
+}
+
+#rsvp-sad {
+  color: #ff466a; /* более темный розовый/бордовый */
+  font-size: 1.11em;
+  margin-top: 1.1em;
+  text-align: center;
+  background: rgba(var(--bg-block-rsvp), var(--block-bg-opacity));
+  padding: 1em 0.5em;
+  border-radius: var(--block-radius);
+  transition: opacity .7s;
+}
 .hidden { display: none; }
 /* Таймер */
 .timer-title {
